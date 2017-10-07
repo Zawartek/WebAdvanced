@@ -59,6 +59,15 @@
 							<mainClass>ex01C.Log4jBasics</mainClass>
 						</configuration>
 					</execution>
+					<execution>
+						<id>build-C</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>ex01D.C</mainClass>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
