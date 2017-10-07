@@ -1,3 +1,5 @@
+package ex01E;
+
 class A {
   int x;
 

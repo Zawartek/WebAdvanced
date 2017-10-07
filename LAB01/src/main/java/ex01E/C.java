@@ -1,3 +1,5 @@
+package ex01E;
+
 class C extends B
 {
   int x, a;
@@ -16,5 +18,5 @@ class C extends B
     super.m();
     super.super.m();
     ((B)this).m(); // (1)
-  } 
+  }
 }

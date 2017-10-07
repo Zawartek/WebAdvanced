@@ -1,3 +1,5 @@
+package ex01E;
+
 class B extends A
 {
   int x;
