@@ -17,3 +17,7 @@ public class C {
     System.out.println("i=" + i + ", s=" + s); // i=0, s=abcd
   }
 }
+
+/*
+mvn exec:java -Dexec.mainClass="ex01D.C"
+*/

@@ -35,3 +35,13 @@ class C extends B
     c.test();
   }
 }
+
+/*
+mvn exec:java -Dexec.mainClass="ex01E.C"
+
+La méthode m appelée est celle de la classe C. 
+
+De prime abord on peut penser que : ((B)this).m(); appellera la méthode m() de la classe B. Ce n’est donc pas le résultat attendu. On constate donc que le cast avec une autre classe ne permet pas d’atteindre ses méthodes mais seulement ses attributs.
+
+Cela correspond au "Multi-level inheritance" (héritage à niveaux multiples).
+*/
