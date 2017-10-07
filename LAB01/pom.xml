@@ -60,12 +60,30 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>build-C</id>
+						<id>build-ex01D</id>
 						<goals>
 							<goal>java</goal>
 						</goals>
 						<configuration>
 							<mainClass>ex01D.C</mainClass>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-ex01E</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>ex01E.C</mainClass>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-ex01F</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>ex01F.ToStringOverloading</mainClass>
 						</configuration>
 					</execution>
 				</executions>

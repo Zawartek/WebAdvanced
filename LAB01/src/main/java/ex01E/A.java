@@ -1,7 +1,7 @@
 package ex01E;
 
 class A {
-  int x;
+  int x=1;
 
   void m()
   {
