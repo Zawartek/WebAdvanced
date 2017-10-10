@@ -1,29 +1,32 @@
 package ex01E;
 
+import org.apache.log4j.Logger;
+
+
 class C extends B {
+	
 	int x = 3, a;
+	private static Logger log = Logger.getLogger(C.class);
 
 	void m() {
-		System.out.println("Je suis dans la méthode m d'une instance de C");
+		String message = "Je suis dans la méthode m d'une instance de C";
+		System.out.println(message);
+		log.info("message="+message);
 	}
 
 	void test() {
 		a = super.x;
-		System.out.println(a);
+		log.debug("super.x="+a);
 		// Super.super impossible
 		// a = super.super.x;
 		a = ((B) this).x;
-		System.out.println(a);
+		log.debug("((B) this).x="+a);
 		a = ((A) this).x;
-		System.out.println(a);
+		log.debug("((A) this).x="+a);
 		super.m();
 		// Super.super impossible
 		// super.super.m();
 		((B) this).m(); // (1)
-		A aclass = new A();
-		aclass.m();
-		aclass = new B();
-		aclass.m();
 	}
 
 	public static void main(String[] args) {

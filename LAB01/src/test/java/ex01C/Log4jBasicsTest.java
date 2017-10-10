@@ -6,7 +6,7 @@ import junit.framework.TestSuite;
 
 public class Log4jBasicsTest extends TestCase
 {
-	protected static Logger log = Logger.getLogger(Log4jBasics.class);
+	protected static Logger log = Logger.getLogger(Log4jBasicsTest.class);
 
 	public Log4jBasicsTest( String testName )
 	{
@@ -16,12 +16,12 @@ public class Log4jBasicsTest extends TestCase
 	/** * @return the suite of tests being tested */
 	public static Test suite()
 	{
-		System.out.println("COUCOU");
 		return new TestSuite( Log4jBasicsTest.class );
 	}
 	/** * Rigourous Test :-) */
 	public void testApp()
 	{
-		assertTrue( true );
+		log.setLevel(Level.DEBUG);
+		assertEquals(log.getLevel(), Level.DEBUG);
 	}
 }

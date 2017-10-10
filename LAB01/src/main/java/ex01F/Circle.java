@@ -12,10 +12,18 @@ public class Circle {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
+		log.debug("x=" + x + " y=" + y + " radius=" + radius);
 	}
 
+	/**
+	 * Overloading of method toString
+	 * @return String message with the attributes of Circle
+	 */
+	@Override
 	public String toString() {
-		return (String.format("Circle with center (%d,%d) and radius %d (Perimter is %,.2f)", this.x, this.y,
-				this.radius, (2 * java.lang.Math.PI * this.radius)));
+		String message=String.format("Circle with center (%d,%d) and radius %d (Perimter is %,.2f)", this.x, this.y,
+				this.radius, (2 * java.lang.Math.PI * this.radius));
+		log.info(message);
+		return message;
 	}
 }

@@ -16,7 +16,6 @@ public class AppTest extends TestCase
 	/** * @return the suite of tests being tested */
 	public static Test suite()
 	{
-		System.out.println("COUCOU");
 		return new TestSuite( AppTest.class );
 	}
 	/** * Rigourous Test :-) */

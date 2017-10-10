@@ -1,9 +1,9 @@
 package ex01D;
 
-import dblab.hello.AppTest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import ex01D.C;
 
 public class CTest  extends TestCase {
 	/** * Create the test case * * @param testName name of the test case */
@@ -16,12 +16,15 @@ public class CTest  extends TestCase {
 	/** * @return the suite of tests being tested */
 	public static Test suite()
 	{
-		System.out.println("COUCOU");
 		return new TestSuite( CTest.class );
 	}
 	/** * Rigourous Test :-) */
 	public void testApp()
 	{
-		assertTrue( true );
+		int i = 0;
+		StringBuffer s = new StringBuffer("abc");
+		C.method1(i, s);
+		assertEquals(i, 0);
+		assertEquals(s.toString(), "abcd");
 	}
 }
