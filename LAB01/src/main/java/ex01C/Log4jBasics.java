@@ -5,6 +5,11 @@ import org.apache.log4j.*;
 public class Log4jBasics {
 	protected static Logger log = Logger.getLogger(Log4jBasics.class);
 
+	/**
+	 * Main method to test log with Log4j
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		log.debug("DEBUG: Cool !");
 		log.info("INFO: Cool !");

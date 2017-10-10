@@ -2,30 +2,32 @@ package ex01E;
 
 import org.apache.log4j.Logger;
 
-
 class C extends B {
-	
+
 	int x = 3, a;
 	private static Logger log = Logger.getLogger(C.class);
 
+	/**
+	 * Overload of method m() from class A, change the message
+	 */
 	void m() {
 		String message = "Je suis dans la méthode m d'une instance de C";
 		System.out.println(message);
-		log.info("message="+message);
+		log.info("message=" + message);
 	}
 
 	void test() {
 		a = super.x;
-		log.debug("super.x="+a);
-		// Super.super impossible
+		log.debug("super.x=" + a);
+		// Super.super impossible en Java
 		// a = super.super.x;
 		a = ((B) this).x;
-		log.debug("((B) this).x="+a);
+		log.debug("((B) this).x=" + a);
 		a = ((A) this).x;
-		log.debug("((A) this).x="+a);
+		log.debug("((A) this).x=" + a);
 		super.m();
-		// Super.super impossible
-		// super.super.m();
+		// Super.super impossible en Java
+		// super.super.m(); impossible en Java
 		((B) this).m(); // (1)
 	}
 
