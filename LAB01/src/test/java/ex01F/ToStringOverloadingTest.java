@@ -17,7 +17,7 @@ public class ToStringOverloadingTest  extends TestCase {
 	public static Test suite()
 	{
 		System.out.println("COUCOU");
-		return new TestSuite( AppTest.class );
+		return new TestSuite( ToStringOverloadingTest.class );
 	}
 	/** * Rigourous Test :-) */
 	public void testApp()

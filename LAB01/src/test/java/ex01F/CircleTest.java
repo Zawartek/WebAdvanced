@@ -19,7 +19,7 @@ public class CircleTest  extends TestCase {
 	public static Test suite()
 	{
 		System.out.println("COUCOU");
-		return new TestSuite( AppTest.class );
+		return new TestSuite( CircleTest.class );
 	}
 	/** * Rigourous Test :-) */
 	public void testApp()

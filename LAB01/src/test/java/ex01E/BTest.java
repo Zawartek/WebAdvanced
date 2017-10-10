@@ -17,7 +17,7 @@ public class BTest  extends TestCase {
 	public static Test suite()
 	{
 		System.out.println("COUCOU");
-		return new TestSuite( AppTest.class );
+		return new TestSuite( BTest.class );
 	}
 	/** * Rigourous Test :-) */
 	public void testApp()
