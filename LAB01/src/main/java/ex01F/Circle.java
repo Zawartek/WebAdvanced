@@ -3,7 +3,7 @@ package ex01F;
 import org.apache.log4j.Logger;
 
 public class Circle {
-	protected static Logger log = Logger.getLogger(Circle.class);
+	protected static Logger log = Logger.getLogger(CircleTest.class);
 	int x;
 	int y;
 	int radius;
