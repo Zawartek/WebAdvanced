@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 public class ToStringOverloading {
 	protected static Logger log = Logger.getLogger(ToStringOverloading.class);
-	
+
 	public static void main(String[] args) {
 		Circle c1 = new Circle(0, 0, 5);
 		Circle c2 = new Circle(0, 0, 3);

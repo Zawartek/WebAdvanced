@@ -8,6 +8,11 @@ public class Circle {
 	int y;
 	int radius;
 
+	/**
+	 * @param x
+	 * @param y
+	 * @param radius
+	 */
 	public Circle(int x, int y, int radius) {
 		this.x = x;
 		this.y = y;

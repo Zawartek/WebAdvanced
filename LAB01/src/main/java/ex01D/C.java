@@ -25,11 +25,14 @@ public class C {
 	public static void main(String[] args) {
 		int i = 0;
 		StringBuffer s = new StringBuffer("abc");
-		/* methode1(i, s); */
+		/* the method : methode1 doesn't exit but method1 does
+		 * methode1(i, s); */
 		log.debug("before method1 : i=" + i + " ,s=" + s);
 		method1(i, s);
 		log.debug("after method1 : i=" + i + " ,s=" + s);
-		/* System.out.println(i=" + i + ", s=" + s); // i=0, s=abcd */
+		/* A : " is missing before i
+		 * System.out.println(i=" + i + ", s=" + s); // i=0, s=abcd
+		 */
 		System.out.println("i=" + i + ", s=" + s); // i=0, s=abcd
 	}
 }
