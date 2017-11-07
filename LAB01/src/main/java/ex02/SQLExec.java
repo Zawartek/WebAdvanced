@@ -119,7 +119,7 @@ public class SQLExec {
 	 * @param resultSet
 	 * @throws Exception
 	 */
-	private void printResult(ResultSet resultSet) throws Exception {
+	public void printResult(ResultSet resultSet) throws Exception {
 		int nbCol = resultSet.getMetaData().getColumnCount();
 		int[] colSizes = new int[nbCol];
 		String line = "", delimiterLine;
