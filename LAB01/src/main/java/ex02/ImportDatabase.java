@@ -93,6 +93,7 @@ public class ImportDatabase {
 			closeResultSet(columns);
 			result.append(importPrimaryKey(tableName));
 			result.append(importForeignKey(tableName));
+			result.append(importIndex(tableName));
             result.append("\n);\n");
             //result.append(importTableData(tableName));
 		}
@@ -153,6 +154,57 @@ public class ImportDatabase {
             result.append(" REFERENCES " + pk_table_name + "("+ pk_column_name +")");
         }
         return result;
+	}
+
+	private StringBuffer importIndex(String tableName) throws SQLException {
+		StringBuffer result = new StringBuffer();
+        ResultSet index = dbMetaData.getIndexInfo(null, null, tableName, false, false);
+        String indexName = null, idxName = null;
+        StringBuffer indexColumns = null;
+        boolean non_unique = false, nn_uniq = false;
+        try {
+			//sqlExec.printResult(index);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        while (index.next()) {
+            idxName = index.getString("INDEX_NAME");
+            nn_uniq = index.getBoolean("NON_UNIQUE");
+            if ((idxName != null && !idxName.equals(indexName))
+                    || (indexName != null && !indexName.equals(idxName))) {
+                indexString(result, indexColumns, indexName, non_unique);
+                // Start again with the new name
+                indexColumns = new StringBuffer();
+                indexName = idxName;
+                non_unique = nn_uniq;
+            }
+            // Now append the column
+            if (indexColumns!=null
+            		&& indexColumns.length() > 0) {
+            	indexColumns.append(", ");
+            }
+            indexColumns.append(index.getString("COLUMN_NAME"));
+        }
+        indexString(result, indexColumns, indexName, non_unique);
+        return result;
+	}
+	
+	private void indexString(StringBuffer result, StringBuffer indexColumns, String indexName, boolean non_unique) {
+		if (indexColumns!=null
+        		&& indexColumns.length() > 0
+        		&& !indexName.equals("PRIMARY")) {
+            // There's something to output
+            if (non_unique) {
+                result.append(",\n    KEY ");
+            } 
+            else {
+                result.append(",\n    UNIQUE KEY ");
+            }
+            if (indexName != null) {
+            	result.append(indexName);
+            }
+            result.append(" ("+indexColumns.toString()+")");
+        }
 	}
 	
 	private StringBuffer importTableData(String tableName) throws SQLException {
