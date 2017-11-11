@@ -149,9 +149,11 @@ public class SQLExec {
 		String data="", line="";
 		for (int i = 1; i <= nbCol; ++i) {
 			colSizes[i - 1] = resultSet.getMetaData().getColumnDisplaySize(i);
-			if (colSizes[i-1]<resultSet.getMetaData().getColumnName(i).length()) {
+			if (colSizes[i-1] < resultSet.getMetaData().getColumnName(i).length()) {
 				colSizes[i-1] = resultSet.getMetaData().getColumnName(i).length();
 			}
+			//System.out.println(resultSet.getMetaData().getColumnName(i) + " " + resultSet.getMetaData().getColumnDisplaySize(i));
+
 			data = resultSet.getMetaData().getColumnName(i);
 			line += String.format("%1$" + colSizes[i - 1] + "s", data);
 			if (i < nbCol) {
