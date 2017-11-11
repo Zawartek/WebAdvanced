@@ -16,7 +16,7 @@ public class MySqlDatabaseTest extends TestCase {
 		return new TestSuite(MySqlDatabaseTest.class);
 	}
 
-	/** * Rigourous Test :-) */
+	/** * Rigourous Test */
 	public void testApp() {
 		String db, user, pass, request;
 		db = "sakila";
