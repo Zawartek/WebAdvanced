@@ -92,8 +92,9 @@ public class ImportDatabase {
 	        }
 			closeResultSet(columns);
 			result.append(importPrimaryKey(tableName));
+			result.append(importForeignKey(tableName));
             result.append("\n);\n");
-            result.append(importTableData(tableName));
+            //result.append(importTableData(tableName));
 		}
 		catch(SQLException e) {
 			closeResultSet(columns);
@@ -138,6 +139,22 @@ public class ImportDatabase {
         }
 	}
 
+	private StringBuffer importForeignKey(String tableName) throws SQLException {
+		StringBuffer result = new StringBuffer();
+        ResultSet foreignKeys = dbMetaData.getImportedKeys(null, null, tableName);
+        String pk_table_name = null,
+        		fk_column_name = null,
+        		pk_column_name = null;
+        while (foreignKeys.next()) {
+        	fk_column_name = foreignKeys.getString("FKCOLUMN_NAME");
+        	pk_table_name = foreignKeys.getString("PKTABLE_NAME");
+        	pk_column_name = foreignKeys.getString("PKCOLUMN_NAME");
+        	result.append(",\n    FOREIGN KEY " + "(" + fk_column_name + ")");
+            result.append(" REFERENCES " + pk_table_name + "("+ pk_column_name +")");
+        }
+        return result;
+	}
+	
 	private StringBuffer importTableData(String tableName) throws SQLException {
 		StringBuffer result = new StringBuffer();
 		String request ="SELECT * FROM " + tableName;
@@ -165,7 +182,6 @@ public class ImportDatabase {
             }
             result.append(");\n");
         }
-        sqlExec.close();
 		return result;
 	}
 	
